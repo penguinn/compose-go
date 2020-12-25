@@ -21,7 +21,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/compose-spec/compose-go/types"
+	"github.com/penguinn/compose-go/types"
 	"github.com/pkg/errors"
 )
 

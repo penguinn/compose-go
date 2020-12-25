@@ -29,11 +29,11 @@ import (
 
 	"github.com/imdario/mergo"
 
-	"github.com/compose-spec/compose-go/envfile"
-	interp "github.com/compose-spec/compose-go/interpolation"
-	"github.com/compose-spec/compose-go/schema"
-	"github.com/compose-spec/compose-go/template"
-	"github.com/compose-spec/compose-go/types"
+	"github.com/penguinn/compose-go/envfile"
+	interp "github.com/penguinn/compose-go/interpolation"
+	"github.com/penguinn/compose-go/schema"
+	"github.com/penguinn/compose-go/template"
+	"github.com/penguinn/compose-go/types"
 	units "github.com/docker/go-units"
 	shellwords "github.com/mattn/go-shellwords"
 	"github.com/mitchellh/mapstructure"

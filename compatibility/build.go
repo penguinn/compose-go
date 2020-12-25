@@ -16,7 +16,7 @@
 
 package compatibility
 
-import "github.com/compose-spec/compose-go/types"
+import "github.com/penguinn/compose-go/types"
 
 func (c *AllowList) CheckBuild(service *types.ServiceConfig) bool {
 	if !c.supported("services.build") && service.Build != nil {

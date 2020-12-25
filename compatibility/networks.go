@@ -16,7 +16,7 @@
 
 package compatibility
 
-import "github.com/compose-spec/compose-go/types"
+import "github.com/penguinn/compose-go/types"
 
 func (c *AllowList) CheckNetworkConfig(network *types.NetworkConfig) {
 	c.CheckNetworkConfigDriver(network)

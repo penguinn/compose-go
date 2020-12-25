@@ -132,10 +132,10 @@ type ServiceConfig struct {
 	Logging         *LoggingConfig                   `yaml:",omitempty" json:"logging,omitempty"`
 	LogDriver       string                           `mapstructure:"log_driver" yaml:"log_driver,omitempty" json:"log_driver,omitempty"`
 	LogOpt          map[string]string                `mapstructure:"log_opt" yaml:"log_opt,omitempty" json:"log_opt,omitempty"`
-	MemLimit        UnitBytes                        `mapstructure:"mem_limit" yaml:"mem_limit,omitempty" json:"mem_limit,omitempty"`
-	MemReservation  UnitBytes                        `mapstructure:"mem_reservation" yaml:"mem_reservation,omitempty" json:"mem_reservation,omitempty"`
-	MemSwapLimit    UnitBytes                        `mapstructure:"memswap_limit" yaml:"memswap_limit,omitempty" json:"memswap_limit,omitempty"`
-	MemSwappiness   UnitBytes                        `mapstructure:"mem_swappiness" yaml:"mem_swappiness,omitempty" json:"mem_swappiness,omitempty"`
+	MemLimit        int64                            `mapstructure:"mem_limit" yaml:"mem_limit,omitempty" json:"mem_limit,omitempty"`
+	MemReservation  int64                            `mapstructure:"mem_reservation" yaml:"mem_reservation,omitempty" json:"mem_reservation,omitempty"`
+	MemSwapLimit    int64                            `mapstructure:"memswap_limit" yaml:"memswap_limit,omitempty" json:"memswap_limit,omitempty"`
+	MemSwappiness   int64                            `mapstructure:"mem_swappiness" yaml:"mem_swappiness,omitempty" json:"mem_swappiness,omitempty"`
 	MacAddress      string                           `mapstructure:"mac_address" yaml:"mac_address,omitempty" json:"mac_address,omitempty"`
 	Net             string                           `yaml:"net,omitempty" json:"net,omitempty"`
 	NetworkMode     string                           `mapstructure:"network_mode" yaml:"network_mode,omitempty" json:"network_mode,omitempty"`
@@ -368,7 +368,7 @@ type Resources struct {
 type Resource struct {
 	// TODO: types to convert from units and ratios
 	NanoCPUs         string            `mapstructure:"cpus" yaml:"cpus,omitempty" json:"cpus,omitempty"`
-	MemoryBytes      UnitBytes         `mapstructure:"memory" yaml:"memory,omitempty" json:"memory,omitempty"`
+	MemoryBytes      int64             `mapstructure:"memory" yaml:"memory,omitempty" json:"memory,omitempty"`
 	Devices          []DeviceRequest   `mapstructure:"devices" yaml:"devices,omitempty" json:"devices,omitempty"`
 	GenericResources []GenericResource `mapstructure:"generic_resources" yaml:"generic_resources,omitempty" json:"generic_resources,omitempty"`
 
@@ -399,19 +399,6 @@ type DiscreteGenericResource struct {
 	Value int64  `json:"value"`
 
 	Extensions map[string]interface{} `yaml:",inline" json:"-"`
-}
-
-// UnitBytes is the bytes type
-type UnitBytes int64
-
-// MarshalYAML makes UnitBytes implement yaml.Marshaller
-func (u UnitBytes) MarshalYAML() (interface{}, error) {
-	return fmt.Sprintf("%d", u), nil
-}
-
-// MarshalJSON makes UnitBytes implement json.Marshaler
-func (u UnitBytes) MarshalJSON() ([]byte, error) {
-	return []byte(fmt.Sprintf(`"%d"`, u)), nil
 }
 
 // RestartPolicy the service restart policy

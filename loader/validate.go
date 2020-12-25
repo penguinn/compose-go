@@ -19,8 +19,8 @@ package loader
 import (
 	"fmt"
 
-	"github.com/compose-spec/compose-go/errdefs"
-	"github.com/compose-spec/compose-go/types"
+	"github.com/penguinn/compose-go/errdefs"
+	"github.com/penguinn/compose-go/types"
 	"github.com/pkg/errors"
 )
 

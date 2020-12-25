@@ -19,9 +19,9 @@ package compatibility
 import (
 	"testing"
 
-	"github.com/compose-spec/compose-go/errdefs"
-	"github.com/compose-spec/compose-go/loader"
-	"github.com/compose-spec/compose-go/types"
+	"github.com/penguinn/compose-go/errdefs"
+	"github.com/penguinn/compose-go/loader"
+	"github.com/penguinn/compose-go/types"
 	"gotest.tools/v3/assert"
 )
 

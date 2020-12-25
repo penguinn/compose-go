@@ -19,7 +19,7 @@ package compatibility
 import (
 	"fmt"
 
-	"github.com/compose-spec/compose-go/types"
+	"github.com/penguinn/compose-go/types"
 )
 
 func (c *AllowList) CheckFileObjectConfigFile(s string, config *types.FileObjectConfig) {
