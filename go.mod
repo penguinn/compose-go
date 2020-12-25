@@ -1,4 +1,4 @@
-module github.com/compose-spec/compose-go
+module github.com/penguinn/compose-go
 
 go 1.13
 
